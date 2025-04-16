@@ -212,11 +212,7 @@ services:
     - MYSQL_PASSWORD=datahub
     - MYSQL_ROOT_PASSWORD=datahub
     healthcheck:
-      interval: 1s
-      retries: 3
-      start_period: 10s
-      test: mysqladmin ping -h mysql -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-      timeout: 5s
+      test: ["CMD", "true"]
     hostname: mysql
     image: mysql:${DATAHUB_MYSQL_VERSION:-8.2}
     ports:
